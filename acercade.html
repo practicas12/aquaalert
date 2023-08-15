@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Monserrat:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+  <link rel="stylesheet" href="estilos2.css">
+  <link rel="stylesheet" href="acer.js">
+  <title>Acerca de ❓</title>
+</head>
+<body>
+  <header>
+    <div><a>AquaAlert</a></div>
+    <nav class="nav">
+        <a href="principal.html" class="nav-item" active-color="Blue">Inicio</a>    
+        <a href="Productos.html" class="nav-item" active-color="Green">Productos</a>
+        <a href="#" class="nav-item is-active" active-color="orange">Acerca de nosotros</a>  
+        <a href="contacto.html" class="nav-item" active-color="Red">Contacto</a>    
+        <span class="nav-indicator"></span>       
+    </nav>
+</header>
+<canvas class="orb-canvas"></canvas>
+<div class="overlay">
+  <div class="overlay__inner">
+    <h1 class="overlay__title">
+      Nosotros somos una empresa en el cual estamos a cargo de
+      <span class="text-gradient"> cuidar y monitorear </span>la calidad del agua
+    </h1>
+    <p class="overlay__description">
+      Aqui el objetivo es, en que todas las personas de cada comunidad este al tanto de que tanta agua esta cosumiendo 
+      y sobre todo informar al usuario sobre la calidad del agua que le es suministrada.<br>
+      <strong>Nuestro equipo está formado por capacitados y apasionados por lo que hacen y hacemos.</strong> 
+    </p>
+  </div>
+  <img src="equipo.jpg" width="600" height="200">
+</div>
+
+  <script>
+    const indicator =document.querySelector('.nav-indicator');
+    const items=document.querySelectorAll('.nav-item');
+    function handleindicator(el){
+        items.forEach(item=>{
+            item.classList.remove('is-active');
+            item.removeAttribute('style');
+        });
+        indicator.style.width=`${el.offsetWidth}px`;
+        indicator.style.left=`${el.offsetLeft}px`;
+        indicator.style.backgroundColor=el.getAttribute('active-color');
+        el.classList.add('is-active');
+        el.style.color=el.getAttribute('active-color');
+    }
+    items.forEach((item,index)=>{
+        item.addEventListener('click',(e)=>{handleindicator(e.target)});
+        item.classList.contains('is-active') && handleindicator(item);
+    })
+</script>
+</body>
+</html>

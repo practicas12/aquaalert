@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productos</title>
+    <link rel="stylesheet" href="cssProduct.css">
+</head>
+<body>
+    <header>
+        <div><a>AquaAlert</a></div>
+        <nav class="nav">
+            <a href="principal.html" class="nav-item" active-color="Blue">Inicio</a>    
+            <a href="#" class="nav-item is-active" active-color="Green">Productos</a>
+            <a href="acercade.html" class="nav-item" active-color="orange">Acerca de nosotros</a>  
+            <a href="contacto.html" class="nav-item" active-color="Red">Contacto</a>    
+            <span class="nav-indicator"></span>   <br>       
+        </nav>
+    </header>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div>    
+    <div  class ="flip-card">
+    <div  class ="flip-card-inner">
+      <div  class ="flip-card-front">
+        <img  src ="imagenes/medidor.jpeg" alt =" Imagen frontal de la tarjeta " >
+      </div>
+      <div  class ="flip-card-back">
+      <div  class ="card-content">
+        <h2 > Medidor de agua basico</h2>
+        <p>Este medidor te permite monitorear la cantidad de agua que utilizas al dia con una presicion de 95%</p>
+        <a  href =" # " class =" btn " > Comprar </a>
+      </div> 
+    </div> 
+  </div> 
+</div>
+<br>
+<br>
+<div  class ="flip-card">
+    <div  class ="flip-card-inner">
+      <div  class ="flip-card-front">
+        <img  src ="imagenes/medidior3.jpeg" alt =" Imagen frontal de la tarjeta " >
+      </div>
+      <div  class ="flip-card-back">
+      <div  class ="card-content">
+        <h2 > Medidor de agua completo</h2>
+        <p>Este medidor te permite monitorear la cantidad de agua que utilizas al dia con una presicion de 95% y tambien te permite saber la calidad del agua</p>
+        <a  href =" # " class =" btn " > Comprar </a>
+      </div> 
+    </div> 
+  </div> 
+</div>
+</div>  
+  
+    <div id="menuC">
+        <ul id="lista">
+            <li id="l3"> <p ><a class="rs" href="">Android</a></p></li>
+            <li id="l1"> <p ><a class="rs" href="">Windows</a></p></li>
+            <li id="l2"> <p ><a class="rs" href="">Linux</a></p></li>
+        </ul>
+        
+    </div>
+    <footer>
+        <div id="footer">
+        <p>© 2023 AquaAlert. Todos los derechos reservados.</p>
+        <p>Proyecto realizado en la UTTT</p>
+        </div>
+    </footer>
+
+    <script>
+        const indicator =document.querySelector('.nav-indicator');
+        const items=document.querySelectorAll('.nav-item');
+        function handleindicator(el){
+            items.forEach(item=>{
+                item.classList.remove('is-active');
+                item.removeAttribute('style');
+            });
+            indicator.style.width=`${el.offsetWidth}px`;
+            indicator.style.left=`${el.offsetLeft}px`;
+            indicator.style.backgroundColor=el.getAttribute('active-color');
+            el.classList.add('is-active');
+            el.style.color=el.getAttribute('active-color');
+        }
+        items.forEach((item,index)=>{
+            item.addEventListener('click',(e)=>{handleindicator(e.target)});
+            item.classList.contains('is-active') && handleindicator(item);
+        })
+    </script>
+    
+</body>
+</html>
